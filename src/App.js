@@ -1,18 +1,36 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import {Container, AppLogo, AppHeader, AppIntro} from './appStyles.js';
+import React, {Component} from 'react';
+import {Container, Title} from './appStyles.js';
+import Card from './Card';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: []
+    };
+  }
+
+  componentDidMount() {
+    const url = `https://api.github.com/users/axiomaticdesign/starred`;
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => this.setState({data}))
+  }
+
   render() {
+    const {data} = this.state;
+
     return (
       <Container>
-        <AppHeader>
-          <AppLogo src={logo} alt="logo" />
-          <h2>Welcome to React</h2>
-        </AppHeader>
-        <AppIntro>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </AppIntro>
+        <Title>
+          Starred repos for <span>axiomaticdesign</span>
+        </Title>
+
+        <div>
+          {data.map(repo => <Card repo={repo}/>)}
+        </div>
       </Container>
     );
   }
