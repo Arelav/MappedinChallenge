@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Container} from './appStyles.js';
 import Card from './Card';
+import FontAwesome from 'react-fontawesome';
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class App extends Component {
         </h1>
         <Card/>
         <div>
-          {data.map(repo => <div key={repo.id}>{repo.name}</div>)}
+          {data.map(repo => <div key={repo.id}><FontAwesome name='star'/>{repo.name}</div>)}
         </div>
       </Container>
     );
