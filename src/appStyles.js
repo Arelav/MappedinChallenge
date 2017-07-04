@@ -6,4 +6,8 @@ const Container = styled.div`
   padding: 40px;
 `;
 
-export {Container};
+const Title = styled.h1`
+  text-align: center;
+`;
+
+export {Container, Title};

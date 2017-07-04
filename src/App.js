@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Container} from './appStyles.js';
+import {Container, Title} from './appStyles.js';
 import Card from './Card';
-import FontAwesome from 'react-fontawesome';
 
 class App extends Component {
   constructor(props) {
@@ -25,12 +24,12 @@ class App extends Component {
 
     return (
       <Container>
-        <h1>
+        <Title>
           Starred repos for <span>axiomaticdesign</span>
-        </h1>
-        <Card/>
+        </Title>
+
         <div>
-          {data.map(repo => <div key={repo.id}><FontAwesome name='star'/>{repo.name}</div>)}
+          {data.map(repo => <Card repo={repo}/>)}
         </div>
       </Container>
     );
