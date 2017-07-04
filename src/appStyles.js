@@ -1,28 +1,9 @@
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 
 const Container = styled.div`
-  text-align: center;
+  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+  background: #eee;
+  padding: 40px;
 `;
 
-const appLogoSpin = keyframes`
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-`;
-
-const AppLogo = styled.img`
-  animation: ${appLogoSpin} infinite 20s linear;
-  height: 80px;
-`;
-
-const AppHeader = styled.div`
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-`;
-
-const AppIntro = styled.p`
-  font-size: large;
-`;
-
-export {Container, AppLogo, AppHeader, AppIntro};
+export {Container};
